@@ -22,7 +22,7 @@ features_train, features_test, labels_train, labels_test = preprocess()
 
 features_train = features_train[:int(len(features_train)/100)]
 labels_train = labels_train[:int(len(labels_train)/100)]
-clf = SVC(kernel='rbf')
+clf = SVC(C=1000, kernel='rbf')
 
 t1 = time()
 clf.fit(features_train, labels_train)
@@ -30,7 +30,7 @@ print("training time:", round(time()-t1, 3), "s")
 
 t2 = time()
 pred = clf.predict(features_test)
-print("training time:", round(time()-t2, 3), "s")
+print("test time:", round(time()-t2, 3), "s")
 
 acc = accuracy_score(labels_test, pred)
 print(acc)
