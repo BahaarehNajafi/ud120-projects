@@ -22,7 +22,7 @@ features_train, features_test, labels_train, labels_test = preprocess()
 
 features_train = features_train[:int(len(features_train)/100)]
 labels_train = labels_train[:int(len(labels_train)/100)]
-clf = SVC(kernel='linear')
+clf = SVC(kernel='rbf')
 
 t1 = time()
 clf.fit(features_train, labels_train)
