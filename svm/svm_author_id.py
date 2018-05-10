@@ -7,7 +7,7 @@
     Sara has label 0
     Chris has label 1
 """
- 
+    
 import sys
 from time import time
 sys.path.append("../tools/")
@@ -20,8 +20,8 @@ from sklearn.metrics import accuracy_score
 # labels_train and labels_test are the corresponding item labels
 features_train, features_test, labels_train, labels_test = preprocess()
 
-features_train = features_train[:int(len(features_train)/100)]
-labels_train = labels_train[:int(len(labels_train)/100)]
+# features_train = features_train[:int(len(features_train)/100)]
+# labels_train = labels_train[:int(len(labels_train)/100)]
 clf = SVC(C=10000, kernel='rbf')
 
 t1 = time()
@@ -35,6 +35,15 @@ print("test time:", round(time()-t2, 3), "s")
 acc = accuracy_score(labels_test, pred)
 print(acc)
 
+"""
 print(pred[10])
 print(pred[26])
 print(pred[50])
+"""
+
+count = 0
+for i in pred:
+    if i == 1:
+        count += 1
+
+print(count)
